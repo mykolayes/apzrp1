@@ -1,0 +1,1 @@
+﻿<%@ ServiceHost Language="C#" Debug="true" Service="Transliteration.TransliterationWCFServerIIS.TransliterationWCFServerIIS" CodeBehind="TransliterationWCFServerIIS.svc.cs" %>

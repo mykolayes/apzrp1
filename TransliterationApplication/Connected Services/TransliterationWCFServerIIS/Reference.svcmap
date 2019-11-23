@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1562b890-fae7-4e1d-9f92-c4f29bd749f7" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:51798/TransliterationWCFServerIIS.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="TransliterationWCFServerIIS.xsd" MetadataType="Schema" ID="97974ba8-ef17-40d3-b90d-9316cdd0ce8b" SourceId="1" SourceUrl="http://localhost:51798/TransliterationWCFServerIIS.svc?xsd=xsd2" />
+    <MetadataFile FileName="TransliterationWCFServerIIS1.xsd" MetadataType="Schema" ID="b7cda822-8a49-49df-b1f3-2628fc610844" SourceId="1" SourceUrl="http://localhost:51798/TransliterationWCFServerIIS.svc?xsd=xsd0" />
+    <MetadataFile FileName="TransliterationWCFServerIIS.wsdl" MetadataType="Wsdl" ID="207310c6-0bc8-42bb-b1a5-7bad524bb0ab" SourceId="1" SourceUrl="http://localhost:51798/TransliterationWCFServerIIS.svc?wsdl" />
+    <MetadataFile FileName="TransliterationWCFServerIIS.disco" MetadataType="Disco" ID="99a6a309-cc9a-4aeb-865b-c55ba13f6842" SourceId="1" SourceUrl="http://localhost:51798/TransliterationWCFServerIIS.svc?disco" />
+    <MetadataFile FileName="TransliterationWCFServerIIS2.xsd" MetadataType="Schema" ID="36a1ad59-9c18-49db-b9c7-6fabeb16ff09" SourceId="1" SourceUrl="http://localhost:51798/TransliterationWCFServerIIS.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

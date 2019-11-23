@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Transliteration.Views.UserTransliterateView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="80"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <Label Grid.Row="0" Grid.Column="0">Enter text to be transliterated:</Label>
+        <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding Path=TextToBeTransliterated, UpdateSourceTrigger=PropertyChanged}" />
+
+        <Button Grid.Row="1" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="5" Content="Transliterate" Command="{Binding TransliterateCommand}"/>
+        
+        <Label Grid.Row="0" Grid.Column="2">Transliterated text:</Label>
+        <TextBlock Grid.Row="1" Grid.Column="2" Text="{Binding Path=TransliteratedText,UpdateSourceTrigger=PropertyChanged, Mode=OneWay}"></TextBlock>
+    </Grid>
+</UserControl>
