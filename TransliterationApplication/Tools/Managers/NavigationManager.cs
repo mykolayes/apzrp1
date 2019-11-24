@@ -1,4 +1,9 @@
-﻿using Transliteration.Tools.Navigation;
+﻿using System;
+using System.Threading;
+using System.Threading.Tasks;
+using System.Windows;
+using Transliteration.DBModels;
+using Transliteration.Tools.Navigation;
 
 namespace Transliteration.Tools.Managers
 {
@@ -32,9 +37,48 @@ namespace Transliteration.Tools.Managers
             _navigationModel = navigationModel;
         }
 
-        internal void Navigate(ViewType viewType)
+        internal async void Navigate(ViewType viewType)
         {
-            _navigationModel.Navigate(viewType);
+            if (viewType == ViewType.SignIn && !string.IsNullOrEmpty(StationManager.CurrentLocalUser.Login))
+            {
+                LoaderManager.Instance.ShowLoader();
+                var result = await Task.Run(() =>
+                {
+                    Thread.Sleep(1000);
+                    User currentUser;
+                    try
+                    {
+                        currentUser = StationManager.Client.GetUser(StationManager.CurrentLocalUser.Login);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Sign In failed for user {StationManager.CurrentLocalUser.Login}. Reason:{Environment.NewLine}{ex.Message}");
+                        return false;
+                    }
+                    if (currentUser == null)
+                    {
+                        MessageBox.Show(
+                            $"Sign In failed for user {StationManager.CurrentLocalUser.Login}. Reason:{Environment.NewLine}User does not exist.");
+                        return false;
+                    }
+                    //if (!currentUser.CheckPassword(_password))
+                    //{
+                    //    MessageBox.Show($"Sign In failed for user {_login}. Reason:{Environment.NewLine}Wrong Password.");
+                    //    return false;
+                    //}
+                    StationManager.CurrentUser = currentUser;
+                    MessageBox.Show($"Sign In successful for user {StationManager.CurrentLocalUser.Login}.");
+                    return true;
+                });
+                LoaderManager.Instance.HideLoader();
+                if (result)
+                    _navigationModel.Navigate(ViewType.Main);
+
+            }
+            else
+            {
+                _navigationModel.Navigate(viewType);
+            }
         }
 
     }

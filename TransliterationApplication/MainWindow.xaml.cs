@@ -3,6 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Transliteration.Tools.Managers;
 using Transliteration.Tools.Navigation;
+using Transliteration.TransliterationApplication.DataStorage;
 using Transliteration.ViewModels;
 using Transliteration.TransliterationApplication.TransliterationWCFServerIIS;
 
@@ -28,7 +29,7 @@ namespace Transliteration
         {
             TransliterationServiceClient serverClient = new TransliterationServiceClient("BasicHttpBinding_ITransliterationService");
 
-            StationManager.Initialize(serverClient);
+            StationManager.Initialize(serverClient, new SerializedDataStorage());
             NavigationManager.Instance.Initialize(new InitializationNavigationModel(this));
             NavigationManager.Instance.Navigate(ViewType.SignIn);
         }

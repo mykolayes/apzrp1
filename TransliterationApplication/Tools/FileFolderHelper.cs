@@ -12,7 +12,7 @@ namespace Transliteration.Tools
             Path.Combine(AppDataPath, "CSharpKMA");
 
         internal static readonly string StorageFilePath =
-            Path.Combine(AppFolderPath, "Storage.cskma");
+            Path.Combine(AppFolderPath, "StorageLocal.cskma");
 
         internal static bool CreateFolderAndCheckFileExistance(string filePath)
         {

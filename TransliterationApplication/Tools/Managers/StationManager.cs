@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Windows;
 using Transliteration.DBModels;
+using Transliteration.TransliterationApplication.DataStorage;
+using Transliteration.TransliterationApplication.Models;
 using Transliteration.TransliterationApplication.TransliterationWCFServerIIS;
 
 namespace Transliteration.Tools.Managers
@@ -11,7 +13,16 @@ namespace Transliteration.Tools.Managers
 
         private static TransliterationServiceClient _client;
 
+        private static IDataStorage _dataStorage;
+
+        internal static IDataStorage DataStorage
+        {
+            get { return _dataStorage; }
+        }
+
         internal static User CurrentUser { get; set; }
+
+        internal static UserLocal CurrentLocalUser { get; set; }
 
         public static TransliterationServiceClient Client
         {
@@ -26,15 +37,18 @@ namespace Transliteration.Tools.Managers
         }
             
 
-        internal static void Initialize(TransliterationServiceClient client)
+        internal static void Initialize(TransliterationServiceClient client, IDataStorage dataStorage)
         {
             _client = client;
+            _dataStorage = dataStorage;
+            CurrentLocalUser = _dataStorage.CurrentUser;
         }
         
         internal static void CloseApp()
         {
+            StationManager.DataStorage.ChangeUser(CurrentLocalUser);
+            StationManager.DataStorage.SaveCurrentUser();
             MessageBox.Show("ShutDown");
-            //TODO serialize user's login/psw to local datastorage
             StopThreads?.Invoke();
             Environment.Exit(1);
         }

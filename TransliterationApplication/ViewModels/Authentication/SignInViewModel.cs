@@ -7,6 +7,7 @@ using Transliteration.DBModels;
 using Transliteration.Tools;
 using Transliteration.Tools.Managers;
 using Transliteration.Tools.Navigation;
+using Transliteration.TransliterationApplication.Models;
 
 namespace Transliteration.ViewModels.Authentication
 {
@@ -105,6 +106,7 @@ namespace Transliteration.ViewModels.Authentication
                 //    return false;
                 //}
                 StationManager.CurrentUser = currentUser;
+                StationManager.CurrentLocalUser = new UserLocal(_login); //, _password
                 MessageBox.Show($"Sign In successful for user {_login}.");
                 return true;
             });

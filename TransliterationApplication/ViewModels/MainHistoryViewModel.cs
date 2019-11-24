@@ -3,6 +3,7 @@ using System.Windows.Input;
 using Transliteration.Tools;
 using Transliteration.Tools.Managers;
 using Transliteration.Tools.Navigation;
+using Transliteration.TransliterationApplication.Models;
 
 namespace Transliteration.ViewModels
 {
@@ -61,6 +62,7 @@ namespace Transliteration.ViewModels
 
         private void LogOutImplementation(object obj)
         {
+            StationManager.CurrentLocalUser = new UserLocal();
             NavigationManager.Instance.Navigate(ViewType.SignIn);
         }
 

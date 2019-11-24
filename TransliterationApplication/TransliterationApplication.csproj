@@ -65,6 +65,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="DataStorage\IDataStorage.cs" />
+    <Compile Include="DataStorage\SerializedDataStorage.cs" />
+    <Compile Include="Models\UserLocal.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Tools\BaseViewModel.cs" />
     <Compile Include="Tools\Controls\LabelAndPasswordControl.xaml.cs">
@@ -75,6 +78,7 @@
     </Compile>
     <Compile Include="Tools\FileFolderHelper.cs" />
     <Compile Include="Tools\Managers\NavigationManager.cs" />
+    <Compile Include="Tools\Managers\SerializationManager.cs" />
     <Compile Include="Tools\Managers\StationManager.cs" />
     <Compile Include="Tools\Navigation\BaseNavigationModel.cs" />
     <Compile Include="Tools\Navigation\IContentOwner.cs" />
@@ -233,5 +237,6 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
