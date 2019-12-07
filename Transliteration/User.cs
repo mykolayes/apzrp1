@@ -114,7 +114,10 @@ namespace Transliteration.DBModels
 
         public bool CheckPassword(string password)
         {
-            return _password == password;
+            byte[] data = System.Text.Encoding.ASCII.GetBytes(password);
+            data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+            var hash = System.Text.Encoding.ASCII.GetString(data);
+            return _password == hash;
         }
 
         public override string ToString()

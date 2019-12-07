@@ -61,11 +61,11 @@ namespace Transliteration.Tools.Managers
                             $"Sign In failed for user {StationManager.CurrentLocalUser.Login}. Reason:{Environment.NewLine}User does not exist.");
                         return false;
                     }
-                    //if (!currentUser.CheckPassword(_password))
-                    //{
-                    //    MessageBox.Show($"Sign In failed for user {_login}. Reason:{Environment.NewLine}Wrong Password.");
-                    //    return false;
-                    //}
+                    if (currentUser.Password != StationManager.CurrentLocalUser.Password)
+                    {
+                        MessageBox.Show($"Sign In failed for user {StationManager.CurrentLocalUser.Login}. Reason:{Environment.NewLine}Wrong Password.");
+                        return false;
+                    }
                     StationManager.CurrentUser = currentUser;
                     MessageBox.Show($"Sign In successful for user {StationManager.CurrentLocalUser.Login}.");
                     return true;

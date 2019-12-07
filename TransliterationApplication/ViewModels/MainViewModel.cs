@@ -63,6 +63,7 @@ namespace Transliteration.ViewModels
 
         private void LogOutImplementation(object obj)
         {
+            StationManager.CurrentUser = null;
             StationManager.CurrentLocalUser = new UserLocal();
             NavigationManager.Instance.Navigate(ViewType.SignIn);
         }

@@ -141,7 +141,7 @@ namespace Transliteration.ViewModels.Authentication
                     var user = new User(_firstName, _lastName, _email, _login, _password);
                     StationManager.Client.AddUser(user);
                     StationManager.CurrentUser = user;
-                    StationManager.CurrentLocalUser = new UserLocal(_login); //, _password
+                    StationManager.CurrentLocalUser = new UserLocal(_login, _password); 
                 }
                 catch (Exception ex)
                 {

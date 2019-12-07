@@ -22,6 +22,9 @@ namespace Transliteration.Server.Implementation
         {
             using (var context = new TransliterationDBContext())
             {
+                byte[] data = System.Text.Encoding.ASCII.GetBytes(user.Password);
+                data = new System.Security.Cryptography.SHA256Managed().ComputeHash(data);
+                user.Password = System.Text.Encoding.ASCII.GetString(data);
                 context.Users.Add(user);
                 context.SaveChanges();
             }

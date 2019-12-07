@@ -100,13 +100,13 @@ namespace Transliteration.ViewModels.Authentication
                         $"Sign In failed for user {_login}. Reason:{Environment.NewLine}User does not exist.");
                     return false;
                 }
-                //if (!currentUser.CheckPassword(_password))
-                //{
-                //    MessageBox.Show($"Sign In failed for user {_login}. Reason:{Environment.NewLine}Wrong Password.");
-                //    return false;
-                //}
+                if (!currentUser.CheckPassword(_password))
+                {
+                    MessageBox.Show($"Sign In failed for user {_login}. Reason:{Environment.NewLine}Wrong Password.");
+                    return false;
+                }
                 StationManager.CurrentUser = currentUser;
-                StationManager.CurrentLocalUser = new UserLocal(_login); //, _password
+                StationManager.CurrentLocalUser = new UserLocal(_login, _password); 
                 MessageBox.Show($"Sign In successful for user {_login}.");
                 return true;
             });
