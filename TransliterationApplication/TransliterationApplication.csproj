@@ -92,7 +92,6 @@
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\UserTransliterateViewModel.cs" />
     <Compile Include="ViewModels\UserTransliterationsViewModel.cs" />
-    <Compile Include="ViewModels\UserListViewModel.cs" />
     <Compile Include="Views\Authentication\SignUpView.xaml.cs">
       <DependentUpon>SignUpView.xaml</DependentUpon>
     </Compile>

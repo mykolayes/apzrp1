@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Threading;
-using System.Threading.Tasks;
-using Transliteration.DBModels;
 using Transliteration.Properties;
 using Transliteration.Tools.Managers;
 
@@ -15,9 +9,6 @@ namespace Transliteration.ViewModels
     class UserTransliterationsViewModel : INotifyPropertyChanged
     {
         private ObservableCollection<DBModels.Transliteration> _transliterations;
-        //private Thread _workingThread;
-        //private CancellationToken _token;
-        //private CancellationTokenSource _tokenSource;
 
         public ObservableCollection<DBModels.Transliteration> Transliterations
         {

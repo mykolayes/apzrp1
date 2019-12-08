@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
+﻿using System.IO;
 using Transliteration.Tools;
 using Transliteration.Tools.Managers;
-using Transliteration.TransliterationApplication.DataStorage;
 using Transliteration.TransliterationApplication.Models;
 
 namespace Transliteration.TransliterationApplication.DataStorage

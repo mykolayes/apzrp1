@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Transliteration.TransliterationApplication.Models;
+﻿using Transliteration.TransliterationApplication.Models;
 
 namespace Transliteration.TransliterationApplication.DataStorage
 {

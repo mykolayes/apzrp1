@@ -1,5 +1,4 @@
 ﻿using System;
-using Transliteration.Views;
 using Transliteration.Views.Authentication;
 using MainView = Transliteration.Views.MainView;
 using SignUpView = Transliteration.Views.Authentication.SignUpView;

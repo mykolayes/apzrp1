@@ -106,7 +106,8 @@ namespace Transliteration.ViewModels.Authentication
                     return false;
                 }
                 StationManager.CurrentUser = currentUser;
-                StationManager.CurrentLocalUser = new UserLocal(_login, _password); 
+                StationManager.CurrentLocalUser = new UserLocal(_login, _password);
+
                 MessageBox.Show($"Sign In successful for user {_login}.");
                 return true;
             });
