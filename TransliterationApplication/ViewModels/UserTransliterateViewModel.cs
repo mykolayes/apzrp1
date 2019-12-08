@@ -8,6 +8,7 @@ using Transliteration.Properties;
 using Transliteration.Tools;
 using Transliteration.Tools.Managers;
 using System.Text;
+using Transliteration.TransliterationApplication.Tools;
 
 namespace Transliteration.ViewModels
 {
@@ -72,6 +73,7 @@ namespace Transliteration.ViewModels
                 }
                 catch (Exception ex)
                 {
+                    LoggingUtil.WriteToLog($"Transliteration failed. Reason:{Environment.NewLine} {ex.Message}");
                     MessageBox.Show($"Transliteration failed. Reason:{Environment.NewLine} {ex.Message}");
                     return false;
                 }

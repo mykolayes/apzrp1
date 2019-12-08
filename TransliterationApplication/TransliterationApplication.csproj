@@ -115,9 +115,6 @@
     <Compile Include="Views\UserTransliterationsView.xaml.cs">
       <DependentUpon>UserTransliterationsView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\UserListView.xaml.cs">
-      <DependentUpon>UserListView.xaml</DependentUpon>
-    </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -159,10 +156,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\UserTransliterationsView.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="Views\UserListView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
