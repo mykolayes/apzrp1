@@ -123,17 +123,24 @@ namespace Transliteration.ViewModels.Authentication
                     if (!new EmailAddressAttribute().IsValid(_email))
                     {
                         MessageBox.Show($"Sign Up failed for user {_login}. Reason:{Environment.NewLine} Email {_email} is not valid.");
+                        Email = "";
                         return false;
                     }
                     if (StationManager.Client.UserExists(_login))
                     {
                         MessageBox.Show($"Sign Up failed for user {_login}. Reason:{Environment.NewLine} User with such login already exists.");
+                        Login = "";
                         return false;
                     }
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Sign Up failed for user {_login}. Reason:{Environment.NewLine} {ex.Message}");
+                    Login = "";
+                    Password = "";
+                    FirstName = "";
+                    LastName = "";
+                    Email = "";
                     return false;
                 }
                 try
@@ -146,9 +153,19 @@ namespace Transliteration.ViewModels.Authentication
                 catch (Exception ex)
                 {
                     MessageBox.Show($"Sign Up failed for user {_login}. Reason:{Environment.NewLine} {ex.Message}");
+                    Login = "";
+                    Password = "";
+                    FirstName = "";
+                    LastName = "";
+                    Email = "";
                     return false;
                 }
                 MessageBox.Show($"User {_login} was successfully created.");
+                Login = "";
+                Password = "";
+                FirstName = "";
+                LastName = "";
+                Email = "";
                 return true;
             });
             LoaderManager.Instance.HideLoader();
@@ -158,11 +175,21 @@ namespace Transliteration.ViewModels.Authentication
 
         private void ToSignInImplementation(object obj)
         {
+            Login = "";
+            Password = "";
+            FirstName = "";
+            LastName = "";
+            Email = "";
             NavigationManager.Instance.Navigate(ViewType.SignIn);
         }
 
         private void CloseImplementation(object obj)
         {
+            Login = "";
+            Password = "";
+            FirstName = "";
+            LastName = "";
+            Email = "";
             StationManager.CloseApp();
         }
 

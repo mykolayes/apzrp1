@@ -4,13 +4,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             d:DesignHeight="300" d:DesignWidth="300" Height="700" Width="700">
 	<Grid>
-		<DataGrid ItemsSource="{Binding Transliterations, Mode=OneWay}" AutoGenerateColumns="False" >
+        <DataGrid ItemsSource="{Binding Transliterations, Mode=OneWay}" IsReadOnly="True" AutoGenerateColumns="False" >
 			<DataGrid.Columns>
-				<DataGridTextColumn Header="Raw text" Binding="{Binding RawText}"></DataGridTextColumn>
-				<DataGridTextColumn Header="Transliterated text" Binding="{Binding TransliteratedText}"></DataGridTextColumn>
-				<DataGridTextColumn Header="Date" Binding="{Binding Date}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Raw text" Binding="{Binding RawText}" MaxWidth="200" MinWidth="100">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Transliterated text" Binding="{Binding TransliteratedText}" MaxWidth="200" MinWidth="100">
+                    <DataGridTextColumn.ElementStyle>
+                        <Style>
+                            <Setter Property="TextBlock.TextWrapping" Value="Wrap" />
+                        </Style>
+                    </DataGridTextColumn.ElementStyle>
+                </DataGridTextColumn>
+                <DataGridTextColumn Header="Date" Binding="{Binding Date}"></DataGridTextColumn>
 			</DataGrid.Columns>
 		</DataGrid>
 	</Grid>

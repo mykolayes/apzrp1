@@ -57,7 +57,6 @@ namespace Transliteration.ViewModels
 
         private void ViewHistoryImplementation(object obj)
         {
-
             NavigationManager.Instance.Navigate(ViewType.History);
         }
 

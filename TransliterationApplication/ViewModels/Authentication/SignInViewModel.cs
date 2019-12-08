@@ -110,6 +110,8 @@ namespace Transliteration.ViewModels.Authentication
                 MessageBox.Show($"Sign In successful for user {_login}.");
                 return true;
             });
+            Login = "";
+            Password = "";
             LoaderManager.Instance.HideLoader();
             if (result)
                 NavigationManager.Instance.Navigate(ViewType.Main);
@@ -117,11 +119,15 @@ namespace Transliteration.ViewModels.Authentication
 
         private void ToSignUpImplementation(object obj)
         {
+            Login = "";
+            Password = "";
             NavigationManager.Instance.Navigate(ViewType.SignUp);
         }
 
         private void CloseImplementation(object obj)
         {
+            Login = "";
+            Password = "";
             StationManager.CloseApp();
         }
 
