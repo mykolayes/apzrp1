@@ -8,6 +8,7 @@ using Transliteration.Tools;
 using Transliteration.Tools.Managers;
 using Transliteration.Tools.Navigation;
 using Transliteration.TransliterationApplication.Models;
+using Transliteration.TransliterationApplication.Tools;
 
 namespace Transliteration.ViewModels.Authentication
 {
@@ -91,23 +92,26 @@ namespace Transliteration.ViewModels.Authentication
                 }
                 catch (Exception ex)
                 {
+                    LoggingUtil.WriteToLog($"Sign In failed for user {_login}. Reason:{Environment.NewLine}{ex.Message}");
                     MessageBox.Show($"Sign In failed for user {_login}. Reason:{Environment.NewLine}{ex.Message}");
                     return false;
                 }
                 if (currentUser == null)
                 {
+                    LoggingUtil.WriteToLog($"Sign In failed for user {_login}. Reason:{Environment.NewLine}User does not exist.");
                     MessageBox.Show(
                         $"Sign In failed for user {_login}. Reason:{Environment.NewLine}User does not exist.");
                     return false;
                 }
                 if (!currentUser.CheckPassword(_password))
                 {
+                    LoggingUtil.WriteToLog($"Sign In failed for user {_login}. Reason:{Environment.NewLine}Wrong Password.");
                     MessageBox.Show($"Sign In failed for user {_login}. Reason:{Environment.NewLine}Wrong Password.");
                     return false;
                 }
                 StationManager.CurrentUser = currentUser;
                 StationManager.CurrentLocalUser = new UserLocal(_login, _password);
-
+                LoggingUtil.WriteToLog($"Sign In successful for user {_login}.");
                 MessageBox.Show($"Sign In successful for user {_login}.");
                 return true;
             });

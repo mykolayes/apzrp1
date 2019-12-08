@@ -4,6 +4,7 @@ using Transliteration.Tools;
 using Transliteration.Tools.Managers;
 using Transliteration.Tools.Navigation;
 using Transliteration.TransliterationApplication.Models;
+using Transliteration.TransliterationApplication.Tools;
 
 namespace Transliteration.ViewModels
 {
@@ -62,6 +63,7 @@ namespace Transliteration.ViewModels
 
         private void LogOutImplementation(object obj)
         {
+            LoggingUtil.WriteToLog($"User {StationManager.CurrentUser.Login} has signed out.");
             StationManager.CurrentUser = null;
             StationManager.CurrentLocalUser = new UserLocal();
             NavigationManager.Instance.Navigate(ViewType.SignIn);

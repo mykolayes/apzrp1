@@ -77,6 +77,7 @@
       <DependentUpon>LabelAndTextControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tools\FileFolderHelper.cs" />
+    <Compile Include="Tools\LoggingUtil.cs" />
     <Compile Include="Tools\Managers\NavigationManager.cs" />
     <Compile Include="Tools\Managers\SerializationManager.cs" />
     <Compile Include="Tools\Managers\StationManager.cs" />

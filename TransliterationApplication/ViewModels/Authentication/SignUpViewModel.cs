@@ -9,6 +9,7 @@ using Transliteration.Tools;
 using Transliteration.Tools.Managers;
 using Transliteration.Tools.Navigation;
 using Transliteration.TransliterationApplication.Models;
+using Transliteration.TransliterationApplication.Tools;
 
 namespace Transliteration.ViewModels.Authentication
 {
@@ -122,12 +123,14 @@ namespace Transliteration.ViewModels.Authentication
                     Thread.Sleep(1000);
                     if (!new EmailAddressAttribute().IsValid(_email))
                     {
+                        LoggingUtil.WriteToLog($"Sign Up failed for user {_login}. Reason:{Environment.NewLine} Email {_email} is not valid.");
                         MessageBox.Show($"Sign Up failed for user {_login}. Reason:{Environment.NewLine} Email {_email} is not valid.");
                         Email = "";
                         return false;
                     }
                     if (StationManager.Client.UserExists(_login))
                     {
+                        LoggingUtil.WriteToLog($"Sign Up failed for user {_login}. Reason:{Environment.NewLine} User with such login already exists.");
                         MessageBox.Show($"Sign Up failed for user {_login}. Reason:{Environment.NewLine} User with such login already exists.");
                         Login = "";
                         return false;
@@ -135,6 +138,7 @@ namespace Transliteration.ViewModels.Authentication
                 }
                 catch (Exception ex)
                 {
+                    LoggingUtil.WriteToLog($"Sign Up failed for user {_login}. Reason:{Environment.NewLine} {ex.Message}");
                     MessageBox.Show($"Sign Up failed for user {_login}. Reason:{Environment.NewLine} {ex.Message}");
                     Login = "";
                     Password = "";
@@ -152,6 +156,7 @@ namespace Transliteration.ViewModels.Authentication
                 }
                 catch (Exception ex)
                 {
+                    LoggingUtil.WriteToLog($"Sign Up failed for user {_login}. Reason:{Environment.NewLine} {ex.Message}");
                     MessageBox.Show($"Sign Up failed for user {_login}. Reason:{Environment.NewLine} {ex.Message}");
                     Login = "";
                     Password = "";
@@ -160,6 +165,7 @@ namespace Transliteration.ViewModels.Authentication
                     Email = "";
                     return false;
                 }
+                LoggingUtil.WriteToLog($"User {_login} was successfully created.");
                 MessageBox.Show($"User {_login} was successfully created.");
                 Login = "";
                 Password = "";
